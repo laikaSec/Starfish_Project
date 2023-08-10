@@ -1,0 +1,16 @@
+#quiz-container {
+  width: 300px;
+  text-align: center;
+  margin: auto;
+}
+
+.btn-container {
+  display: flex;
+  flex-direction: column;
+}
+
+button {
+  padding: 10px;
+  margin: 5px;
+  cursor: pointer;
+}
