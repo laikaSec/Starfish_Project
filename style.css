@@ -1,7 +1,28 @@
+body {
+  font-family: 'Arial', sans-serif;
+  background-image: url('starfish.jpeg'); /* Optional background image */
+  background-size: cover;
+  background-attachment: fixed;
+  margin: 0;
+  padding: 0;
+}
+
 #quiz-container {
-  width: 300px;
+  width: 80%;
+  max-width: 400px;
+  background: rgba(255, 223, 186, 0.9); /* Light sandy color with transparency */
+  border-radius: 8px;
   text-align: center;
-  margin: auto;
+  margin: 50px auto;
+  padding: 30px;
+}
+
+h1 {
+  color: #d35400; /* Starfish color */
+}
+
+#starfish-icon {
+  width: 50px; /* Adjust size as needed */
 }
 
 .btn-container {
@@ -13,4 +34,25 @@ button {
   padding: 10px;
   margin: 5px;
   cursor: pointer;
+  border: none;
+  background: #e67e22; /* Starfish color */
+  color: white;
+  border-radius: 5px;
+  font-size: 1rem;
+}
+
+button:hover {
+  background: #d35400; /* Darker starfish color */
+}
+
+button.correct {
+  background: #4caf50;
+}
+
+button.wrong {
+  background: #f44336;
+}
+
+#next-button {
+  display: none;
 }
