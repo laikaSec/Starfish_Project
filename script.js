@@ -39,7 +39,7 @@ const questions = [
       { text: 'Referral Needed', correct: false },
       { text: 'Positive Feedback', correct: false },
       { text: 'Missing Assignment', correct: false },
-      { text: 'No Flag', correct: true } // Fixed the missing comma here
+      { text: 'No Flag', correct: true }
     ]
   }
 ];
@@ -49,10 +49,8 @@ startGame();
 function startGame() {
   currentQuestionIndex = 0;
   score = 0;
-  nextButton.addEventListener('click', () => { // Modified this line
-    nextQuestion();
-    nextButton.style.display = 'none'; // Hide the Next button after clicking
-  });
+  nextButton.addEventListener('click', nextQuestion);
+  nextButton.style.display = 'none';
   showNextQuestion();
 }
 
@@ -73,6 +71,7 @@ function showQuestion(question) {
 }
 
 function resetState() {
+  nextButton.style.display = 'none';
   while (answerButtons.firstChild) {
     answerButtons.removeChild(answerButtons.firstChild);
   }
@@ -92,6 +91,7 @@ function selectAnswer(answer) {
 
 function nextQuestion() {
   currentQuestionIndex++;
+  nextButton.style.display = 'none'; // Hide the Next button
   if (currentQuestionIndex < questions.length) {
     showNextQuestion();
   } else {
