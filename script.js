@@ -3,17 +3,46 @@ const answerButtons = document.getElementById('answer-buttons');
 
 let currentQuestionIndex = 0;
 
-const questions = [
+const questions = [ // Add more questions here
   {
     question: 'What is the KUDO flag in Starfish?',
     answers: [
       { text: 'Positive Feedback', correct: true },
       { text: 'Missing Assignment', correct: false },
       { text: 'Referral Needed', correct: false },
-      { text: 'Unknown', correct: false }
+      { text: 'No Flag', correct: false }
     ]
   },
-  // Add more questions here
+  
+  {
+    question: 'What is the TO_DO flag in Starfish',
+    answers: [
+      { text: 'No Flag', correct: false },
+      { text: 'Referral Needed', correct: false },
+      { text: 'Missing Assignment', correct: true },
+      { text: 'Positive Feedback', correct: false }
+    ]
+  },
+
+  {
+    question: 'What is the REFERRAL flag in Starfish',
+    answers: [
+      { text: 'Missing Assignment', correct: false },
+      { text: 'No Flag', correct: false },
+      { text: 'Positive Feedback', correct: false },
+      { text: 'Referral Needed', correct: true }
+    ]
+  },
+
+  {
+    question: 'What is the NULL flag in Starfish',
+    answers: [
+      { text: 'Referral Needed', correct: false }
+      { text: 'Positive Feedback', correct: false }
+      { text: 'Missing Assignment', correct: false }
+      { text: 'No Flag', correct: true }
+      ]
+  }
 ];
 
 startGame();
