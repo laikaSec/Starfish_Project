@@ -50,6 +50,7 @@ function startGame() {
   currentQuestionIndex = 0;
   score = 0;
   nextButton.style.display = 'none';
+  nextButton.addEventListener('click', nextQuestion); // Add this line
   showNextQuestion();
 }
 
@@ -85,12 +86,10 @@ function selectAnswer(answer) {
     }
     button.disabled = true;
   });
-  nextButton.style.display = 'block';
-  nextButton.addEventListener('click', nextQuestion);
+  nextButton.style.display = 'block'; // Show the Next button
 }
 
 function nextQuestion() {
-  nextButton.style.display = 'none';
   currentQuestionIndex++;
   if (currentQuestionIndex < questions.length) {
     showNextQuestion();
