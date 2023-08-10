@@ -57,3 +57,4 @@ function selectAnswer(answer) {
     alert('Game Over!'); // Example: Show a simple alert when the game ends
   }
 }
+
