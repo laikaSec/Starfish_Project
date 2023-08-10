@@ -90,9 +90,11 @@ function selectAnswer(answer) {
 }
 
 function nextQuestion() {
+  console.log('nextQuestion function called'); // Debug log
   currentQuestionIndex++;
   nextButton.style.display = 'none'; // Hide the Next button
   if (currentQuestionIndex < questions.length) {
+    console.log('Showing next question'); // Debug log
     showNextQuestion();
   } else {
     alert('Game Over! Your score: ' + score + '/' + questions.length);
