@@ -47,12 +47,13 @@ function resetState() {
 
 function selectAnswer(answer) {
   if (answer.correct) {
-    // Handle correct answer
+    // Handle correct answer, such as updating the score
   }
   currentQuestionIndex++;
   if (currentQuestionIndex < questions.length) {
     showNextQuestion();
   } else {
-    // End the game
+    // Handle end of the game, such as showing a summary or final score
+    alert('Game Over!'); // Example: Show a simple alert when the game ends
   }
 }
