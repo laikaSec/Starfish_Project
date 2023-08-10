@@ -1,9 +1,11 @@
 const questionContainer = document.getElementById('question');
 const answerButtons = document.getElementById('answer-buttons');
+const nextButton = document.getElementById('next-button');
 
 let currentQuestionIndex = 0;
+let score = 0;
 
-const questions = [ // Add more questions here
+const questions = [
   {
     question: 'What is the KUDO flag in Starfish?',
     answers: [
@@ -13,7 +15,6 @@ const questions = [ // Add more questions here
       { text: 'No Flag', correct: false }
     ]
   },
-  
   {
     question: 'What is the TO_DO flag in Starfish',
     answers: [
@@ -23,7 +24,6 @@ const questions = [ // Add more questions here
       { text: 'Positive Feedback', correct: false }
     ]
   },
-
   {
     question: 'What is the REFERRAL flag in Starfish',
     answers: [
@@ -33,15 +33,14 @@ const questions = [ // Add more questions here
       { text: 'Referral Needed', correct: true }
     ]
   },
-
   {
     question: 'What is the NULL flag in Starfish',
     answers: [
-      { text: 'Referral Needed', correct: false }
-      { text: 'Positive Feedback', correct: false }
-      { text: 'Missing Assignment', correct: false }
-      { text: 'No Flag', correct: true }
-      ]
+      { text: 'Referral Needed', correct: false },
+      { text: 'Positive Feedback', correct: false },
+      { text: 'Missing Assignment', correct: false },
+      { text: 'No Flag', correct: true } // Fixed the missing comma here
+    ]
   }
 ];
 
@@ -49,6 +48,8 @@ startGame();
 
 function startGame() {
   currentQuestionIndex = 0;
+  score = 0;
+  nextButton.style.display = 'none';
   showNextQuestion();
 }
 
@@ -69,21 +70,31 @@ function showQuestion(question) {
 }
 
 function resetState() {
+  nextButton.style.display = 'none';
   while (answerButtons.firstChild) {
     answerButtons.removeChild(answerButtons.firstChild);
   }
 }
 
 function selectAnswer(answer) {
-  if (answer.correct) {
-    // Handle correct answer, such as updating the score
-  }
+  const correct = answer.correct;
+  if (correct) score++;
+  document.querySelectorAll('.btn').forEach(button => {
+    if (button.textContent === answer.text) {
+      button.classList.add(correct ? 'correct' : 'wrong');
+    }
+    button.disabled = true;
+  });
+  nextButton.style.display = 'block';
+  nextButton.addEventListener('click', nextQuestion);
+}
+
+function nextQuestion() {
+  nextButton.style.display = 'none';
   currentQuestionIndex++;
   if (currentQuestionIndex < questions.length) {
     showNextQuestion();
   } else {
-    // Handle end of the game, such as showing a summary or final score
-    alert('Game Over!'); // Example: Show a simple alert when the game ends
+    alert('Game Over! Your score: ' + score + '/' + questions.length);
   }
 }
-
