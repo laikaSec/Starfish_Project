@@ -49,8 +49,10 @@ startGame();
 function startGame() {
   currentQuestionIndex = 0;
   score = 0;
-  nextButton.style.display = 'none';
-  nextButton.addEventListener('click', nextQuestion); // Add this line
+  nextButton.addEventListener('click', () => { // Modified this line
+    nextQuestion();
+    nextButton.style.display = 'none'; // Hide the Next button after clicking
+  });
   showNextQuestion();
 }
 
@@ -71,7 +73,6 @@ function showQuestion(question) {
 }
 
 function resetState() {
-  nextButton.style.display = 'none';
   while (answerButtons.firstChild) {
     answerButtons.removeChild(answerButtons.firstChild);
   }
